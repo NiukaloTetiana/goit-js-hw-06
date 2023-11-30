@@ -16,43 +16,27 @@
 
 // Створи функцію destroyBoxes(), яка очищає вміст div#boxes, у такий спосіб видаляючи всі створені елементи.
 
-// function getRandomHexColor() {
-//   return `#${Math.floor(Math.random() * 16777215)
-//     .toString(16)
-//     .padStart(6, 0)}`;
-// }
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+}
 
-// const randomither = (max) => {
-//   return Math.floor(Math.random() * max);
-// };
+const inputRef = document.querySelector(".input");
+const buttonIncrRef = document.querySelector('[data-action="increment"]');
+const buttonDecrRef = document.querySelector('[data-action="decrement"]');
+const list = document.querySelector(".list");
+let size = 20;
 
-// const boxElement = document.createElement("div");
-
-// boxElement.style.cssText = forms[0];
-// boxElement.style.backgroundColor = getRandomHexColor();
-// document.body.append(boxElement);
-
-// boxElement.addEventListener("click", () => {
-//   const randomeIndex = randomither(forms.length);
-//   boxElement.style.cssText = forms[randomeIndex];
-//   boxElement.style.backgroundColor = getRandomHexColor();
-//   boxElement.style.position = "absolute";
-//   const height =
-//     100 -
-//     (boxElement.clientHeight * 100) / document.documentElement.clientHeight;
-//   const width =
-//     100 - (boxElement.clientWidth * 100) / document.documentElement.clientWidth;
-//   boxElement.style.top = `${randomither(height)}%`;
-//   boxElement.style.left = `${randomither(width)}%`;
-// });
-
-// const controlsRef = document.querySelector("#controls");
-// let liElems = [];
-// for (let i = 1; i < controls.length; i++) {
-//   liElem.classlist.add();
-//   liElems.push(liElem);
-// }
-
-// console.log(liElems);
-
-// ingredientsElem.append(...liElems);
+buttonIncrRef.addEventListener("click", () => {
+  for (let i = 0; i < inputRef.value; i++) {
+    size += 10;
+    const item = `<li style="width: ${size}px; height: ${size}px; background-color: ${getRandomHexColor()}; margin: 2px"></li>`;
+    list.insertAdjacentHTML("beforeend", item);
+  }
+  inputRef.value = "";
+});
+buttonDecrRef.addEventListener("click", () => {
+  list.innerHTML = "";
+  size = 20;
+});
