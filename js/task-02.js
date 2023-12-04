@@ -22,3 +22,11 @@ const markup = ingredients.map((item) => {
   return li;
 });
 ingredientsElem.append(...markup);
+
+// ======================var2=================================
+// const markup = ingredients.map((item) => {
+//   const li = document.createElement("li");
+//   li.textContent = item;
+//   return li;
+// });
+//console.log(markup);

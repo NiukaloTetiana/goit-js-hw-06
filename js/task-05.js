@@ -3,9 +3,14 @@
 const inputRef = document.querySelector("#name-input");
 const outputRef = document.querySelector("#name-output");
 
+inputRef.addEventListener("input", onInputChenge);
+
 function onInputChenge(event) {
   outputRef.textContent =
     inputRef.value !== "" ? event.currentTarget.value : "Anonymous";
 }
+// =========================var2====================================
 
-inputRef.addEventListener("input", onInputChenge);
+// function onInputChenge(event) {
+// textContent = event.currentTarget.value || "Anonymous";
+// }
